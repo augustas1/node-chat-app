@@ -17,7 +17,7 @@ io.on('connection', (socket) => {
     socket.on('createMessage', (newEmail) => {
         console.log('createEmail', newEmail);
         newEmail.createdAt = new Date().getTime();
-        socket.emit('newMessage', newEmail);
+        io.emit('newMessage', newEmail);
     });
 
     socket.on('disconnect', () => {
